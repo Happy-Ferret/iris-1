@@ -8,12 +8,11 @@ PACKAGE_NAME = 'iris'
 PACKAGE_VERSION = '0.1'
 
 INSTALL_REQUIRES = [
-    #'xlib==0.21;platform_system=="Linux"',
+    'xlib==0.21;platform_system=="Linux"',
     #'pyobjc-core;platform_system=="Darwin"',
     #'pyobjc;platform_system=="Darwin"',
     'pyobjc-framework-Quartz;platform_system=="Darwin"',
     'coloredlogs',
-    'hashfs',
     'python-dateutil',
     'opencv-python==3.4.0.12',
     'pytesseract==0.2.0',
