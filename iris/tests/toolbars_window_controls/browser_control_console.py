@@ -47,6 +47,7 @@ class Test(BaseTest):
         logger.debug('Opening browser console with keyboard shortcut ')
         browser_control_console_title_assert=center_screen.exists('browser_control_console_title.png')
         assert_true(self, browser_control_console_title_assert, 'Console is opened')
+
         expanded_center_region = Region(center_screen.getX(), center_screen.getY(), center_screen.getW() * 1.5,
                                             center_screen.getH())
         expanded_center_region.click('auxiliary_window_close_button.png')
@@ -69,5 +70,5 @@ class Test(BaseTest):
 
         expanded_center_region.click('auxiliary_window_maximize.png')
         logger.debug('Browser Console is maximized')
-        if Settings.getOS() == Platform.WINDOWS:
+        if Settings.getOS() != Platform.MAC:
             force_close()
