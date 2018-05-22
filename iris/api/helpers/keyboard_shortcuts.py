@@ -595,14 +595,12 @@ def force_close():
     type(text='u', modifier=KeyModifier.CTRL)
 
 
-# End Tools keyboard shortcuts
-
-
 def open_web_developer_menu():
     """
     Open tWeb_developer tool.
     """
     type(text=Key.F2, modifier=KeyModifier.SHIFT)
+
 
 def open_browser_console():
     """
@@ -612,3 +610,12 @@ def open_browser_console():
         type(text="j", modifier=KeyModifier.CMD + KeyModifier.SHIFT)
     else:
         type(text="j", modifier=KeyModifier.CTRL + KeyModifier.SHIFT)
+
+
+def hide_active_window():
+    """
+    Hide active window
+    """
+    type(text="h", modifier=KeyModifier.CMD)
+
+# End Tools keyboard shortcuts
