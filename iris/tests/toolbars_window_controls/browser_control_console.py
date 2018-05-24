@@ -71,15 +71,15 @@ class Test(BaseTest):
 
         # click maximize
         if Settings.getOS() == Platform.MAC:
-            maximize = Pattern('auxiliary_window_minimize.png').targetOffset(25, 5)
+            maximize = Pattern('auxiliary_window_minimize.png').targetOffset(25, 10)
             center_screen.click(maximize)
             maximize_button_assert = exists('browser_control_console_title.png', 3)
             assert_false(self, maximize_button_assert, 'Page is maximized')
-            hide_active_window()
+
+
 
         else:
             center_screen.click('auxiliary_window_maximize.png')
             logger.debug('Browser Console is maximized')
 
-        if Settings.getOS() != Platform.MAC:
-            force_close()
+        close_full_screen_auxiliary_window()

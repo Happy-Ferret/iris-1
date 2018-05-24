@@ -393,6 +393,12 @@ def remove_zoom_indicator_from_toolbar():
         logger.error('Zoom indicator not removed from toolbar - aborting test run.')
         exit(1)
 
+def close_full_screen_auxiliary_window():
+    if Settings.getOS() == Platform.MAC:
+        reset_mouse()
+    else:
+        close_auxiliary_window()
+
 
 
 class _IrisProfile(object):
@@ -482,4 +488,6 @@ class _IrisProfile(object):
 
 
 Profile = _IrisProfile()
+
+
 
