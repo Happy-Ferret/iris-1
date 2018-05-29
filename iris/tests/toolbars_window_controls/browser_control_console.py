@@ -76,8 +76,6 @@ class Test(BaseTest):
             maximize_button_assert = exists('browser_control_console_title.png', 3)
             assert_false(self, maximize_button_assert, 'Page is maximized')
 
-
-
         else:
             center_screen.click('auxiliary_window_maximize.png')
             logger.debug('Browser Console is maximized')
