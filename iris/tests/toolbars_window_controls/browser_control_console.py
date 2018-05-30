@@ -32,7 +32,7 @@ class Test(BaseTest):
 
         # open a console from developer tool command line
         console_command = 'window.alert("test alert")'
-        type(console_command)
+        type(console_command,interval=0.2)
         type(Key.ENTER)
         # create a new region in the center of the screen
         center_screen = Region(0, screen.getH() / 4, screen.getW(), screen.getH() / 2 - 100)

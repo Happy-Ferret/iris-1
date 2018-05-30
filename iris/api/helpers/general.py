@@ -394,7 +394,7 @@ def remove_zoom_indicator_from_toolbar():
         exit(1)
 
 def close_full_screen_auxiliary_window():
-    if Settings.getOS() == Platform.MAC:
+    if Settings.getOS() == Platform.MAC or Settings.getOS() == Platform.LINUX :
         reset_mouse()
         close_auxiliary_window()
     else:
