@@ -15,7 +15,7 @@ class Test(BaseTest):
 
     def run(self):
 
-        url = "about:home"
+        url = "about:blank"
 
         navigate(url)
         time.sleep(3)
