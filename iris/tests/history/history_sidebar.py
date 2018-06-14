@@ -46,6 +46,8 @@ class Test(BaseTest):
 
         # Check that Youtube is displayed in the History list.
         paste('youtube')
+        time.sleep(0.5)
+        type(Key.TAB)
         expected_4 = exists(history_sidebar_youtube, 10)
         assert_true(self, expected_4, 'Youtube displayed in the History list successfully.')
 
@@ -59,6 +61,10 @@ class Test(BaseTest):
         assert_true(self, expected_6 and expected_7, 'The expected items are displayed in the History list.')
 
         # Check that an unavailable page is not found in the History list.
+        click(search_history_box)
+        time.sleep(0.5)
         paste('test')
+        time.sleep(0.5)
+        type(Key.TAB)
         expected_8 = exists(history_empty, 10)
         assert_true(self, expected_8, 'The page wasn\'t found in the History list.')
