@@ -1281,12 +1281,16 @@ def _image_search_loop(image_path, at_interval=None, attempts=None, precision=No
     if precision is None:
         precision = Settings.MinSimilarity
 
+    start_time = time.time()
     pos = _image_search(image_path, precision, region)
-    tries = 0
-    while pos.x == -1 and tries < attempts:
-        logger.debug("Searching for image %s" % image_path)
+    tries = 1
+    max_time = int(attempts * at_interval)
+    passed_time = time.time() - start_time
+    while pos.x == -1 and tries < attempts and passed_time < max_time:
         time.sleep(at_interval)
+        logger.debug("Searching for image %s" % image_path)
         pos = _image_search(image_path, precision, region)
+        passed_time = time.time() - start_time
         tries += 1
     return pos
 
@@ -1598,7 +1602,7 @@ def create_region_from_patterns(top=None, bottom=None, left=None, right=None):
         else:
             raise FindError('Pattern not found: %s ' % pattern)
 
-    return Region (p1.x, p1.y, p2.x - p1.x, p2.y - p1.y)
+    return Region(p1.x, p1.y, p2.x - p1.x, p2.y - p1.y)
 
 
 """Sikuli wrappers
